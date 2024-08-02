@@ -26,3 +26,9 @@ function salvarUser(){
     }
 }
 //função para criar lista
+function criarLista(){
+    let tabela = document.getElementById('tabela').innerHTML = "<tr><th>nome usuario</th><th>ações</th></tr>";
+    for(let i = 0; i <= (dadosLista.length-1) ; i++){
+        
+    }
+}
