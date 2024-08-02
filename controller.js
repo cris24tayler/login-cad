@@ -19,8 +19,10 @@ function salvarUser(){
 
     if(nomeUser){
         dadosLista.push(nomeUser);
-        console.log(dadosLista);
+        //console.log(dadosLista);
+        document.getElementById('nomeUser').value = "";
     }else{
         alert("favor informar o nome para cadastro");
     }
 }
+//função para criar lista
