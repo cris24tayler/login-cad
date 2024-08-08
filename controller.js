@@ -19,6 +19,7 @@ function salvarUser(){
 
     if(nomeUser){
         dadosLista.push(nomeUser);
+        criarLista()
         //console.log(dadosLista);
         document.getElementById('nomeUser').value = "";
     }else{
