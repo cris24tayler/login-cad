@@ -30,7 +30,7 @@ function salvarUser(){
 function criarLista(){
     let tabela = document.getElementById('tabela').innerHTML = "<tr><th>nome usuario</th><th>ações</th></tr>";
     for(let i = 0; i <= (dadosLista.length-1); i++){
-        tabela += "<tr><td>" + dadosLista[i] + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>editar</button</td></tr>";
+        tabela += "<tr><td>" + dadosLista[i] + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>editar</button><button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)'>excluir</button></td></tr>";
         document.getElementById('tabela').innerHTML = tabela;
     }
 }
@@ -39,4 +39,9 @@ function editar(i){
     document.getElementById('nomeUser').value = dadosLista[(i - 1)];
     dadosLista.splice(dadosLista[(i - 1)], 1);
 }
- 
+ // função para excluir nome da lista
+ function excluir(i){
+    //
+    dadosLista.splice((i-1), 1);
+    document.getElementById('tabela').deleteRow(i);
+ }
