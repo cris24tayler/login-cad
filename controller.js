@@ -44,4 +44,5 @@ function editar(i){
     //
     dadosLista.splice((i-1), 1);
     document.getElementById('tabela').deleteRow(i);
+    document.getElementById('nomeUser').value = "";
  }
