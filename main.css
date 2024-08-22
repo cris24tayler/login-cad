@@ -1,0 +1,10 @@
+.count{
+    background-color: red;
+    color: white;
+}
+body{
+    background: repeating-linear-gradient(green, rgb(11, 160, 90), rgb(21, 224, 163), rgb(0, 170, 248));
+}
+html{
+    height: 700px;
+}
