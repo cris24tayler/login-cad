@@ -19,6 +19,9 @@ function salvarUser(){
     let nomeUser = document.getElementById('nomeUser').value;
     let EmailUser = document.getElementById('EmailUser').value;
 
+    if (!checarEmail(EmailUser)) {
+        return; 
+    }
     if(nomeUser && EmailUser){
         dadosLista.push(nomeUser);
         emailLista.push(EmailUser);
@@ -30,6 +33,7 @@ function salvarUser(){
         alert("Por favor, informar o nome e email para cadastro");
     }
 }
+
 //função para criar lista
 function criarLista(){
     let tabela = document.getElementById('tabela').innerHTML = "<tr><th>nome usuario</th><th>Email</th><th>ações</th></tr>";
@@ -37,6 +41,17 @@ function criarLista(){
     for(let i = 0; i <= (dadosLista.length-1); i++){
         tabela += "<tr><td>" + dadosLista[i] + "</td><td>" + emailLista[i] + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>editar</button><button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)'>excluir</button></td></tr>";
         document.getElementById('tabela').innerHTML = tabela;
+        
+    }
+}
+function checarEmail(EmailUser){
+    if (EmailUser == "" ||
+        EmailUser.indexOf("@") == -1 ||
+        EmailUser.indexOf(".") == -1) {
+        alert("Por favor informe um email válido");
+        return false;
+    } else {
+        return true;
     }
 }
 //função para editar nomes da lista
