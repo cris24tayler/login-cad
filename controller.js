@@ -49,15 +49,15 @@ function editar(i){
 
  //-------------------------------------------------------EMAIL-----------------------------------------------
 
- var dadosLista = [];
+ var EmailLista = [];
 
-function salvarUser(){
-    let nomeUser = document.getElementById('EmailUser').value;
+
+function EmailUser(){
+    let EmailUser = document.getElementById('EmailUser').value;
 
     if(EmailUser){
-        dadosLista.push(EmailUser);
+        EmailLista.push(EmailUser);
         criarLista()
-        //console.log(dadosLista);
         document.getElementById('EmailUser').value = "";
     }else{
         alert("favor informar o Email para cadastro");
@@ -66,20 +66,19 @@ function salvarUser(){
 //função para criar lista
 function criarLista(){
     let tabela = document.getElementById('tabela').innerHTML = "<tr><th>nome usuario</th><th>Email</th><th>ações</th></tr>";
-    for(let i = 0; i <= (dadosLista.length-1); i++){
-        tabela += "<tr><td>" + dadosLista[i] + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>editar</button><button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)'>excluir</button></td></tr>";
+    for(let i = 0; i <= (EmailLista.length-1); i++){
+        tabela += "<tr><td>" + EmailLista[i] + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>editar</button><button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)'>excluir</button></td></tr>";
         document.getElementById('tabela').innerHTML = tabela;
     }
 }
 //função para editar nomes da lista
 function editar(i){
-    document.getElementById('EmailUser').value = dadosLista[(i - 1)];
-    dadosLista.splice(dadosLista[(i - 1)], 1);
+    document.getElementById('EmailUser').value = EmailLista[(i - 1)];
+    EmailLista.splice(EmailLista[(i - 1)], 1);
 }
  // função para excluir nome da lista
  function excluir(i){
-    //
-    dadosLista.splice((i-1), 1);
+    EmailLista.splice((i-1), 1);
     document.getElementById('tabela').deleteRow(i);
     document.getElementById('EmailUser').value = "";
  }
