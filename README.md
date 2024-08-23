@@ -1,6 +1,6 @@
 # projeto de cadastro
 pode colocar o nome da pessoa e se for necessario pode editar o nome armazenado no array
-<img src="Captura%20de%20tela%202024-08-09%20110748.png" alt="imagem do projeto">
+<img src="img_projeto.png" alt="imagem do projeto">
 
 ## function
 cria uma função para ser usada no projeto 
