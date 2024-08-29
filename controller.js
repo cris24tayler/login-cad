@@ -1,70 +1,94 @@
 // validar acesso em tela de login
-function acessar(){
-    let loginEmail = document.getElementById('loginEmail').value;
-    let loginSenha = document.getElementById('loginSenha').value;
+//function acessar(){
+  //  let loginEmail = document.getElementById('loginEmail').value;
+    //let loginSenha = document.getElementById('loginSenha').value;
 
-    if(!loginEmail || !loginSenha){
-        alert("favor preencher todos os campos")
-    }else{
-        //alert("campos preenchidos com sucesso")
-        window.location.href = 'cadastro.html'
-    }
-}
 
-// função que armazena em array nome na tela de cadastro
-var dadosLista = [];
-var emailLista = [];
+   // if(!loginEmail || !loginSenha){
+     //   alert("favor preencher todos os campos")
+    //}else{
+     //   alert("campos preenchidos com sucesso") 
+  //  }
+//}
+document.getElementById('cpfForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const cpf = document.getElementById('cpf').value;
+    const email = document.getElementById('loginEmail').value.trim();
+    const senha = document.getElementById('loginSenha').value.trim();
+    const msg = document.getElementById('message');
+    let messages = [];
 
-function salvarUser(){
-    let nomeUser = document.getElementById('nomeUser').value;
-    let EmailUser = document.getElementById('EmailUser').value;
-
-    if (!checarEmail(EmailUser)) {
-        return; 
-    }
-    if(nomeUser && EmailUser){
-        dadosLista.push(nomeUser);
-        emailLista.push(EmailUser);
-        criarLista();
-        //console.log(dadosLista);
-        document.getElementById('nomeUser').value = "";
-        document.getElementById('EmailUser').value = "";
-    }else{
-        alert("Por favor, informar o nome e email para cadastro");
-    }
-}
-
-//função para criar lista
-function criarLista(){
-    let tabela = document.getElementById('tabela').innerHTML = "<tr><th>nome usuario</th><th>Email</th><th>ações</th></tr>";
-
-    for(let i = 0; i <= (dadosLista.length-1); i++){
-        tabela += "<tr><td>" + dadosLista[i] + "</td><td>" + emailLista[i] + "</td><td><button type='button' onclick='editar(this.parentNode.parentNode.rowIndex)'>editar</button><button type='button' onclick='excluir(this.parentNode.parentNode.rowIndex)'>excluir</button></td></tr>";
-        document.getElementById('tabela').innerHTML = tabela;
-        
-    }
-}
-function checarEmail(EmailUser){
-    if (EmailUser == "" ||
-        EmailUser.indexOf("@") == -1 ||
-        EmailUser.indexOf(".") == -1) {
-        alert("Por favor informe um email válido");
-        return false;
+    // Validação de Email
+    if (validarEmail(email)) {
+        messages.push('O e-mail é válido!');
     } else {
-        return true;
+        messages.push('O e-mail é inválido!');
     }
+
+    // Verificação se a senha foi preenchida
+    if (!senha) {
+        messages.push('Por favor, insira sua senha!');
+    }
+
+    // Validação de CPF
+    if (validarCPF(cpf)) {
+        messages.push('O CPF é válido!');
+    } else {
+        messages.push('O CPF é inválido!');
+    }
+
+    // Exibindo as mensagens
+    if (messages.length > 0) {
+        msg.innerHTML = messages.join('<br>'); // Exibe as mensagens separadas por uma nova linha
+        msg.style.color = messages.some(m => m.includes('inválido') || m.includes('Por favor')) ? 'red' : 'green';
+    }
+});
+
+function validarEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
 }
-//função para editar nomes da lista
-function editar(i){
-    document.getElementById('nomeUser').value = dadosLista[(i - 1)];
-    document.getElementById('EmailUser').value = emailLista[(i - 1)];
-    dadosLista.splice(dadosLista[(i - 1)], 1);
+
+function validarCPF(cpf) {
+    cpf = cpf.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
+
+    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+        return false;
+    }
+
+    let soma = 0;
+    let resto;
+
+    for (let i = 1; i <= 9; i++) {
+        soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+    }
+
+    resto = (soma * 10) % 11;
+
+    if (resto === 10 || resto === 11) {
+        resto = 0;
+    }
+
+    if (resto !== parseInt(cpf.substring(9, 10))) {
+        return false;
+    }
+
+    soma = 0;
+    for (let i = 1; i <= 10; i++) {
+        soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+    }
+
+    resto = (soma * 10) % 11;
+
+    if (resto === 10 || resto === 11) {
+        resto = 0;
+    }
+
+    if (resto !== parseInt(cpf.substring(10, 11))) {
+        return false;
+    }
+
+    return true;
 }
- // função para excluir nome da lista
- function excluir(i){
-    //
-    dadosLista.splice((i-1), 1);
-    document.getElementById('tabela').deleteRow(i);
-    document.getElementById('nomeUser').value = "";
-    document.getElementById('EmailUser').value = "";
-}
+//window.location.href = 'cadastro.html'
