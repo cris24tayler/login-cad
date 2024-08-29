@@ -16,3 +16,15 @@ A length propriedade de dados de um String valor contém o comprimento da string
 
 ## push
  adiciona valores a um array. Esse método é intencionalmente genérico. Podendo ser utilizado por call() ou apply() em objetos que implementam arrays. O método push depende da propriedade length para determinar onde começar a inserir os valores.
+
+ # projeto de login
+
+## Validação de CPF e E-mail
+
+* Este é um projeto simples sobre validação de CPF e endereço de e-mail. A implementação foi feita usando JavaScript. O código JavaScript é separado em um arquivo dedicado, controller.js, para melhor organização e manutenção.
+
+## funcionalidades
+
+* Validação de CPF – este recurso verifica se a entrada fornecida pelo usuário é um CPF válido de acordo com suas regras de formação.
+
+* Validação de e-mail – este recurso verifica se a entrada está em um formato de e-mail válido. Estrutura do Projeto
