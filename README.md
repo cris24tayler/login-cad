@@ -28,3 +28,5 @@ A length propriedade de dados de um String valor contém o comprimento da string
 * Validação de CPF – este recurso verifica se a entrada fornecida pelo usuário é um CPF válido de acordo com suas regras de formação.
 
 * Validação de e-mail – este recurso verifica se a entrada está em um formato de e-mail válido. Estrutura do Projeto
+### obs
+o projeto de cadastro foi lincado ao projeto de login. olhando a foto do projeto de login nota-se que há um iper link abaicho do botão acessar que direciona para pagina de cadastro.
