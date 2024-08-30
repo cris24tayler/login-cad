@@ -1,6 +1,6 @@
 # projeto de cadastro
 pode colocar o nome da pessoa e se for necessario pode editar o nome armazenado no array
-<img src="img_projeto.png" alt="imagem do projeto">
+<img src="img_projeto.png" alt="imagem do projeto de cadastro">
 
 ## function
 cria uma função para ser usada no projeto 
@@ -18,7 +18,7 @@ A length propriedade de dados de um String valor contém o comprimento da string
  adiciona valores a um array. Esse método é intencionalmente genérico. Podendo ser utilizado por call() ou apply() em objetos que implementam arrays. O método push depende da propriedade length para determinar onde começar a inserir os valores.
 
  # projeto de login
-
+<img src="img_login.png" alt="imagem do projeto de login">
 ## Validação de CPF e E-mail
 
 * Este é um projeto simples sobre validação de CPF e endereço de e-mail. A implementação foi feita usando JavaScript. O código JavaScript é separado em um arquivo dedicado, controller.js, para melhor organização e manutenção.
